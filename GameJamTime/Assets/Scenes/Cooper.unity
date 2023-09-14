@@ -470,6 +470,9 @@ MonoBehaviour:
   playerHit:
     serializedVersion: 2
     m_Bits: 64
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
   raycastRange: 500
   agent: {fileID: 1913821446}
 --- !u!1 &2021127067
