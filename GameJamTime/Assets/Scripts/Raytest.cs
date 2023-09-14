@@ -12,7 +12,7 @@ public class Raytest : MonoBehaviour
 
     void Update()
     {
-        
+        tester();
     }
 
 

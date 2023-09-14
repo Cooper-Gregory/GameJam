@@ -26,7 +26,7 @@ public class BadGuyRaycast : MonoBehaviour
 
     void Update()
     {
-        
+        BadGuyRay();
     }
 
     private void OnDrawGizmos()
