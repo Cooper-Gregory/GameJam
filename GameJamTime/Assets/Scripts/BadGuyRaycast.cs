@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class BadGuyRaycast : MonoBehaviour
 {
 
-    public GameObject lastHit;
+    //public GameObject lastHit;
     public Vector3 collision = Vector3.zero;
 
-    [Header("Layers")]
+    //[Header("Layers")]
     public LayerMask playerHit;
-    public LayerMask wallHit;
+    //public LayerMask wallHit;
     public float raycastRange = 100;
 
 
@@ -30,8 +30,8 @@ public class BadGuyRaycast : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, raycastRange, playerHit))
         {
-            agent.transform.position = hit.point;
-            collision = hit.point;
+            agent.SetDestination(hit.point);
+            collision = hit.point; // sets v3 position to the hitpoint
         }
         
     }
