@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3501060909848589837}
   - component: {fileID: 5918518163464342455}
   - component: {fileID: 2392606801152677984}
+  - component: {fileID: 5886519039887618574}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Untagged
@@ -4076,3 +4077,15 @@ CapsuleCollider:
   m_Height: 0.7006165
   m_Direction: 1
   m_Center: {x: 0.00000015988194, y: 0.015342015, z: 0.0000005595868}
+--- !u!114 &5886519039887618574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301694141774023618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad56748344424c479b6d0ea60344dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
