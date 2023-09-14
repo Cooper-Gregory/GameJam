@@ -14705,6 +14705,10 @@ PrefabInstance:
       value: 430.2
       objectReference: {fileID: 0}
     - target: {fileID: 8158628027575155457, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
+      propertyPath: throwKey
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158628027575155457, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
       propertyPath: totalThrows
       value: 5
       objectReference: {fileID: 0}
