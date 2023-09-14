@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 302695341}
   - component: {fileID: 302695340}
   - component: {fileID: 302695339}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14072,7 +14072,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23702
+  m_Name: pb_Mesh23728
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14411,6 +14411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8158628027310730170, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
+      propertyPath: field of view
+      value: 50.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8158628027310730172, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
       propertyPath: mouseSensitivity
       value: 350
@@ -14418,6 +14422,10 @@ PrefabInstance:
     - target: {fileID: 8158628027575155469, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
       propertyPath: m_Name
       value: First Person Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158628027575155470, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
+      propertyPath: speed
+      value: 8.9
       objectReference: {fileID: 0}
     - target: {fileID: 8158628027575155471, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
       propertyPath: m_RootOrder
