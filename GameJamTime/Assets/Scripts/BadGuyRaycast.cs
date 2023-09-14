@@ -12,6 +12,7 @@ public class BadGuyRaycast : MonoBehaviour
     //[Header("Layers")]
     public LayerMask playerHit;
     //public LayerMask wallHit;
+    public LayerMask ground;
     public float raycastRange = 100;
 
 
@@ -25,20 +26,34 @@ public class BadGuyRaycast : MonoBehaviour
 
     void Update()
     {
-
-        var ray = new Ray(this.transform.position, this.transform.forward);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, raycastRange, playerHit))
-        {
-            agent.SetDestination(hit.point);
-            collision = hit.point; // sets v3 position to the hitpoint
-        }
-        
+        BadGuyRay();
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(collision, radius: 0.2f);
+    }
+
+    public void BadGuyRay()
+    {
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        Ray ray = new Ray(this.transform.position, fwd);
+        RaycastHit hit;
+
+
+        if (Physics.Raycast(ray, out hit, raycastRange, playerHit))
+        {
+            agent.SetDestination(hit.point);
+            collision = hit.point; // sets v3 position to the hitpoint
+            Debug.Log("I have hit something");
+
+
+        }
+
+        if (Physics.Raycast(ray, out hit, ground))
+        {
+            Debug.LogWarning("Hitting the ground!!");
+        }
     }
 }
