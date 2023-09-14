@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 823269066}
   - component: {fileID: 823269065}
   - component: {fileID: 823269064}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,14 +563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca96ccd73ba9ac4fbf86ffb33105d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collision: {x: 0, y: 0, z: 0}
+  playerToLookFor: {fileID: 2033286669}
+  playerPosition: {x: 0, y: 0, z: 0}
   playerHit:
     serializedVersion: 2
     m_Bits: 64
-  ground:
-    serializedVersion: 2
-    m_Bits: 8
   raycastRange: 500
+  isChasing: 0
   agent: {fileID: 1913821446}
 --- !u!1 &2021127067
 GameObject:
