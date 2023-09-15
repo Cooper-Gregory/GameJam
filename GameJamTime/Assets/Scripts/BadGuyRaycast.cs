@@ -56,7 +56,10 @@ public class BadGuyRaycast : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, direction * sightRange, out hit, layerToTarget))//If the ray is hitting the player layer within the set range
         {
-            if(hit.collider.tag == "Player")
+
+            agent.SetDestination(playerPosition);
+
+            /*if (hit.collider.tag == "Player")
             {
                 canSeePlayer = true;
                 canNotSeePlayer = false;
@@ -69,7 +72,7 @@ public class BadGuyRaycast : MonoBehaviour
                 canNotSeePlayer = true;
                 agent.SetDestination(this.transform.position);
                 //Debug.Log("I can't see you anymore");
-            }
+            }*/
         }
     }
     
