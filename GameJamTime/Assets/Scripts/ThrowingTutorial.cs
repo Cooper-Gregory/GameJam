@@ -29,11 +29,44 @@ public class ThrowingTutorial : MonoBehaviour
     {
         if(Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
         {
-            Throw();
+            //Throw();
+            StartCoroutine(Throwing());
         }
     }
 
-    private void Throw()
+    IEnumerator Throwing()
+    {
+        // instantiate object to throw
+        GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
+
+        // get rigidbody component
+        Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
+
+        // calculate direction
+        Vector3 forceDirection = cam.transform.forward;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(cam.position, cam.forward, out hit, 500f))
+        {
+            forceDirection = (hit.point - attackPoint.position).normalized;
+        }
+
+        //add force
+        Vector3 forceToAdd = forceDirection * throwForce + transform.up * throwUpwardForce;
+
+        projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(throwCooldown);
+
+        totalThrows--;
+
+        //implement throwCooldown
+        Invoke(nameof(ResetThrow), throwCooldown);
+        
+    }
+
+    /*private void Throw()
     {
         // instantiate object to throw
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
@@ -60,7 +93,7 @@ public class ThrowingTutorial : MonoBehaviour
 
         //implement throwCooldown
         Invoke(nameof(ResetThrow), throwCooldown);
-    }
+    }*/
 
     private void ResetThrow()
     {
