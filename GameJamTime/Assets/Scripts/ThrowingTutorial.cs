@@ -18,24 +18,28 @@ public class ThrowingTutorial : MonoBehaviour
     public float throwForce;
     public float throwUpwardForce;
 
-    bool readyToThrow;
+    bool canThrow = true;
 
     private void Start()
     {
-        readyToThrow = true;
+        canThrow = true;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(throwKey) && readyToThrow && totalThrows > 0)
+        if (canThrow)
         {
-            //Throw();
-            StartCoroutine(Throwing());
+            if (Input.GetKeyDown(throwKey) && totalThrows > 0)
+            {
+                //Throw();
+                StartCoroutine(Throwing());
+            }
         }
     }
 
     IEnumerator Throwing()
     {
+        canThrow = false;
         // instantiate object to throw
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
 
@@ -57,13 +61,12 @@ public class ThrowingTutorial : MonoBehaviour
 
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
 
-        yield return new WaitForSeconds(throwCooldown);
-
         totalThrows--;
 
         //implement throwCooldown
         Invoke(nameof(ResetThrow), throwCooldown);
-        
+        yield return new WaitForSeconds(throwCooldown);
+        canThrow = true;
     }
 
     /*private void Throw()
@@ -97,7 +100,7 @@ public class ThrowingTutorial : MonoBehaviour
 
     private void ResetThrow()
     {
-        readyToThrow = true;
+        canThrow = true;
     }
 
     //GetKeyDown - When you press down, THAT frame only
