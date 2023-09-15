@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Baddy
+  - Carryable
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Player
   - Baddy
   - Wall
-  - 
+  - Carriable
   - 
   - 
   - 
