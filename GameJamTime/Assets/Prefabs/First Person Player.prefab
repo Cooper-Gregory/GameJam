@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8158628025505529052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThrowAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8158628026152910180}
   - component: {fileID: 8158628026152910182}
   - component: {fileID: 8158628026152910183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8158628027310730170}
   - component: {fileID: 8158628027310730171}
   - component: {fileID: 8158628027310730172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -226,9 +226,9 @@ GameObject:
   - component: {fileID: 8158628027575155468}
   - component: {fileID: 8158628027575155470}
   - component: {fileID: 8158628027575155457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: First Person Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
