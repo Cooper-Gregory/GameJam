@@ -306,6 +306,7 @@ GameObject:
   - component: {fileID: 7948334062820017197}
   - component: {fileID: 7948334062820017364}
   - component: {fileID: 7948334062820017198}
+  - component: {fileID: -4051551812781902285}
   m_Layer: 7
   m_Name: BadGuy
   m_TagString: Baddy
@@ -460,3 +461,18 @@ MonoBehaviour:
   canNotSeePlayer: 0
   audioSourcePosition: {x: 0, y: 0, z: 0}
   agent: {fileID: 7948334062820017364}
+--- !u!114 &-4051551812781902285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948334062820017366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 761894f0d4d79a348bcf16d3b05846dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 7948334062820017366}
+  player: {fileID: 8158628027575155469, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
+  deathScreen: {fileID: 0}
