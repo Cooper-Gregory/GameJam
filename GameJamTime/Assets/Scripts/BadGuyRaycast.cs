@@ -7,42 +7,68 @@ using UnityEngine.AI;
 public class BadGuyRaycast : MonoBehaviour
 {
     public GameObject playerToLookFor;
-    private Vector3 collision = Vector3.zero;
     public Vector3 playerPosition;
+    public GameObject enemy;
+    public Vector3 enemyPosition;
+
+    public Vector3 direction;
+    private RaycastHit hit;
 
     [Header("Raycast Info")]
     public LayerMask playerHit;
     //public LayerMask wallHit;
-    public float raycastRange = 100;
+    public float sightRange;
+    public float playerDistance;
+
+    public bool isLooking = true;
     public bool isChasing = false;
+    bool isActive = false;
+    public Ray ray = new Ray();
+    public Vector3 offset;
 
 
     public NavMeshAgent agent;
 
     void Update()
     {
-        BadGuyRay();
-        PlayerToFind();
+        if (isActive)
+        {
+            BadGuyRay();
+            PositionCalculators();
+            Debug.DrawRay(ray.origin, playerPosition);
+        }
+        isActive = true;
     }
 
     public void BadGuyRay()
     {
-        Ray ray = new Ray(this.transform.position, playerPosition);//The ray being cast to the player's current position
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, raycastRange, playerHit))//If the ray is hitting the player layer within the set range
+        playerDistance = Vector3.Distance(transform.position, playerToLookFor.transform.position);
+
+        //RaycastHit hit;
+        ray = new Ray(this.transform.position, direction);//The ray being cast to the player's current position
+
+        //Debug.Log("Stuff is: " + ray);
+
+        if (Physics.Raycast(ray.origin, direction * sightRange, out hit, playerHit))//If the ray is hitting the player layer within the set range
         {
-            agent.SetDestination(hit.point);
-            collision = hit.point; // sets v3 position to the hitpoint
+            Debug.LogWarning("Agent destination set");
+            //agent.SetDestination(hit.point);
+            agent.SetDestination(playerPosition);
+            //playerPosition = hit.point; // sets v3 position to the hitpoint
             Debug.Log("I have hit something");
         }
     }
-
-    public void PlayerToFind()
+    
+    public void PositionCalculators()
     {
-        if (isChasing)
+        if (isLooking)
         {
-            playerPosition = playerToLookFor.transform.position;   
+            //Vector3 offset = new Vector3(0, 0.2f, 0);
+            playerPosition = (playerToLookFor.transform.position);
+            enemyPosition = (enemy.transform.position);
+
+            direction = (playerPosition - enemyPosition).normalized;
         }
     }
 
@@ -52,6 +78,6 @@ public class BadGuyRaycast : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(collision, radius: 0.2f);
+        Gizmos.DrawWireSphere(playerPosition, radius: 0.2f);
     }
 }
