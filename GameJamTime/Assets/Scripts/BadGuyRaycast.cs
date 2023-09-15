@@ -30,12 +30,16 @@ public class BadGuyRaycast : MonoBehaviour
 
     [Header("Move to sound")]
     public Vector3 audioSourcePosition;
-    public List<GameObject> bottles = new List<GameObject>();
+    private BottleShatter[] bottles;
+
 
     public NavMeshAgent agent;
 
     void Update()
     {
+        bottles = FindObjectsOfType<BottleShatter>();
+        
+
         if (isActive)
         {
             BadGuyRay();
@@ -79,14 +83,5 @@ public class BadGuyRaycast : MonoBehaviour
     public void GoToSound()
     {
 
-    }
-
-
-
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(playerPosition, radius: 0.2f);
     }
 }
