@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Baddy
   - Carryable
+  - Wall
   layers:
   - Default
   - TransparentFX

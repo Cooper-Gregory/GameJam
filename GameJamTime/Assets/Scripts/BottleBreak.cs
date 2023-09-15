@@ -17,7 +17,6 @@ public class BottleBreak : MonoBehaviour
     {
         source.Play();
         this.gameObject.SetActive(false);
-        Debug.Log("Stuff!");
 
     }
 }

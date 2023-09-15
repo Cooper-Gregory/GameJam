@@ -6,26 +6,27 @@ using UnityEngine.AI;
 
 public class BadGuyRaycast : MonoBehaviour
 {
+
+    [Header("Player Info")]
     public GameObject playerToLookFor;
     public Vector3 playerPosition;
+
+    [Header("Enemy")]
     public GameObject enemy;
     public Vector3 enemyPosition;
 
-    public Vector3 direction;
-    private RaycastHit hit;
-
     [Header("Raycast Info")]
-    public LayerMask playerHit;
-    //public LayerMask wallHit;
+    public LayerMask layerToTarget;
     public float sightRange;
     public float playerDistance;
-
-    public bool isLooking = true;
-    public bool isChasing = false;
-    bool isActive = false;
+    public Vector3 direction;
+    private RaycastHit hit;
     public Ray ray = new Ray();
     public Vector3 offset;
 
+    public bool canSeePlayer = true;
+    public bool canNotSeePlayer = false;
+    bool isActive = false;
 
     public NavMeshAgent agent;
 
@@ -42,34 +43,33 @@ public class BadGuyRaycast : MonoBehaviour
 
     public void BadGuyRay()
     {
-
         playerDistance = Vector3.Distance(transform.position, playerToLookFor.transform.position);
-
-        //RaycastHit hit;
         ray = new Ray(this.transform.position, direction);//The ray being cast to the player's current position
 
-        //Debug.Log("Stuff is: " + ray);
-
-        if (Physics.Raycast(ray.origin, direction * sightRange, out hit, playerHit))//If the ray is hitting the player layer within the set range
+        if (Physics.Raycast(ray.origin, direction * sightRange, out hit, layerToTarget))//If the ray is hitting the player layer within the set range
         {
-            Debug.LogWarning("Agent destination set");
-            //agent.SetDestination(hit.point);
-            agent.SetDestination(playerPosition);
-            //playerPosition = hit.point; // sets v3 position to the hitpoint
-            Debug.Log("I have hit something");
+            if(hit.collider.tag == "Player")
+            {
+                canSeePlayer = true;
+                canNotSeePlayer = false;
+                agent.SetDestination(playerPosition);
+                Debug.LogWarning("I can see you");
+            }
+            else if(hit.collider.tag == "Wall")
+            {
+                canSeePlayer = false;
+                canNotSeePlayer = true;
+                agent.SetDestination(this.transform.position);
+                Debug.Log("I can't see you anymore");
+            }
         }
     }
     
     public void PositionCalculators()
     {
-        if (isLooking)
-        {
-            //Vector3 offset = new Vector3(0, 0.2f, 0);
-            playerPosition = (playerToLookFor.transform.position);
-            enemyPosition = (enemy.transform.position);
-
-            direction = (playerPosition - enemyPosition).normalized;
-        }
+        playerPosition = (playerToLookFor.transform.position);
+        enemyPosition = (enemy.transform.position);
+        direction = (playerPosition - enemyPosition).normalized;
     }
 
 

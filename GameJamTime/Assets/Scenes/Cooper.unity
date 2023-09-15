@@ -135,12 +135,12 @@ GameObject:
   - component: {fileID: 823269066}
   - component: {fileID: 823269065}
   - component: {fileID: 823269064}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &823269064
 BoxCollider:
@@ -359,15 +359,18 @@ MonoBehaviour:
   playerPosition: {x: 0, y: 1.39, z: 0}
   enemy: {fileID: 860652157}
   enemyPosition: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  playerHit:
+  lookingAtPlayer:
     serializedVersion: 2
     m_Bits: 64
+  lookingAtWall:
+    serializedVersion: 2
+    m_Bits: 256
   sightRange: 30
   playerDistance: 0
-  isLooking: 1
-  isChasing: 0
+  direction: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0.43, z: 0}
+  canSeePlayer: 1
+  canNotSeePlayer: 0
   agent: {fileID: 860652159}
 --- !u!54 &860652166
 Rigidbody:
@@ -597,9 +600,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8158628026152910181, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8158628027310730168, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8158628027310730172, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
+      propertyPath: mouseSensitivity
+      value: 650
       objectReference: {fileID: 0}
     - target: {fileID: 8158628027575155469, guid: 8e21a743fc1e323419ca6302b56aaa10, type: 3}
       propertyPath: m_Name
