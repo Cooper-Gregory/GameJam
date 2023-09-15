@@ -28,6 +28,10 @@ public class BadGuyRaycast : MonoBehaviour
     public bool canNotSeePlayer = false;
     bool isActive = false;
 
+    [Header("Move to sound")]
+    public Vector3 audioSourcePosition;
+    public List<GameObject> bottles = new List<GameObject>();
+
     public NavMeshAgent agent;
 
     void Update()
@@ -70,6 +74,11 @@ public class BadGuyRaycast : MonoBehaviour
         playerPosition = (playerToLookFor.transform.position);
         enemyPosition = (enemy.transform.position);
         direction = (playerPosition - enemyPosition).normalized;
+    }
+
+    public void GoToSound()
+    {
+
     }
 
 
