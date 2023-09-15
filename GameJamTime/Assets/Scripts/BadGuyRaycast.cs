@@ -61,14 +61,14 @@ public class BadGuyRaycast : MonoBehaviour
                 canSeePlayer = true;
                 canNotSeePlayer = false;
                 agent.SetDestination(playerPosition);
-                Debug.LogWarning("I can see you");
+                //Debug.LogWarning("I can see you");
             }
             else if(hit.collider.tag == "Wall")
             {
                 canSeePlayer = false;
                 canNotSeePlayer = true;
                 agent.SetDestination(this.transform.position);
-                Debug.Log("I can't see you anymore");
+                //Debug.Log("I can't see you anymore");
             }
         }
     }
