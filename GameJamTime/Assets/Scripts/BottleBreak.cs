@@ -7,6 +7,10 @@ public class BottleBreak : MonoBehaviour
 {
     public AudioSource source;
     GameObject audioManager;
+
+    public GameObject thisObject;
+    public Vector3 sourceCoords;
+
     private void Start()
     {
         audioManager = GameObject.Find("SFX");
@@ -19,4 +23,10 @@ public class BottleBreak : MonoBehaviour
         this.gameObject.SetActive(false);
 
     }
+
+    public void BossToSound()
+    {
+        sourceCoords = thisObject.transform.position;
+    }
+
 }
